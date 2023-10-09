@@ -30,15 +30,15 @@ export default function Login_Menu() {
 
     return (
         <div className="flex flex-col gap-1 h-full place-content-center items-center">
-            <input type="text" className={inputs} placeholder="User" id="user" />
-            <input type="password" className={inputs} name="" placeholder="Password" id="pass" />
+            <input type="text" className={inputs} placeholder={location.Login[lang || 'en'].user_placeholder} id="user" />
+            <input type="password" className={inputs} name="" placeholder={location.Login[lang || 'en'].password_placeholder} id="pass" />
             <button onClick={() => {
                 // Este tipo de cosas son los puntos negativos de ts
                 const user = (document.querySelector("#user") as HTMLInputElement)?.value
                 const pass = (document.querySelector("#pass") as HTMLInputElement)?.value
                 Auth(user, pass)
             }}>
-                {location.Login[lang || "es"].login_button}
+                {location.Login[lang || 'en'].login_button}
             </button>
         </div>
     )

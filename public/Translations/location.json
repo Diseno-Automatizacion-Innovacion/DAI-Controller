@@ -1,10 +1,14 @@
 {
     "Login": {
         "es": {
-            "login_button": "Iniciar sesion"
+            "login_button": "Iniciar sesion",
+            "password_placeholder": "Contraseña",
+            "user_placeholder": "Usuario"
         },
         "en": {
-            "login_button": "Login"
+            "login_button": "Login",
+            "password_placeholder": "Password",
+            "user_placeholder": "User"
         }
     }
 }
