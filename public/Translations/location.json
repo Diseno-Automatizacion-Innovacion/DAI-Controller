@@ -1,0 +1,10 @@
+{
+    "Login": {
+        "es": {
+            "login_button": "Iniciar sesion"
+        },
+        "en": {
+            "login_button": "Login"
+        }
+    }
+}
