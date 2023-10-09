@@ -31,7 +31,7 @@ export default function Login() {
                 })).json()
                 console.log(res)
                 if (res.ok) router.push("/Dashboard")
-                setLoading(login_menu)
+                else setLoading(login_menu)
             }
         }
         checkCookie()
@@ -40,7 +40,7 @@ export default function Login() {
 
     return (
         <main className='flex items-center place-content-center h-[100vh]'>
-            <div className='w-[30vw] h-[50vh] bg-slate-800 rounded text-black'>
+            <div className='w-[30vw] h-[60vh] bg-slate-800 rounded text-black'>
                 {loading}
             </div>
         </main>
