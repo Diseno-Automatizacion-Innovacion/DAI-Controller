@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-// Components
+/* ------------------------------- Components ------------------------------- */
 import loading_menu from '@/Components/Dashboard/loading_menu'
 import login_menu from '@/Components/Dashboard/login_menu'
 import { useLanguage } from '@/Components/useLanguage'
@@ -22,6 +22,7 @@ export default function Login() {
 
     useEffect(() => {
         async function checkCookie() {
+            // console.log("a")
             if (localStorage.getItem("login")) {
                 const res = await (await fetch("/api/Cookie", {
                     method: "POST",
@@ -33,14 +34,15 @@ export default function Login() {
                 if (res.ok) router.push("/Dashboard")
                 else setLoading(login_menu)
             }
+            else setLoading(login_menu)
         }
         checkCookie()
-    }, [])
+    }, [router])
 
 
     return (
         <main className='flex items-center place-content-center h-[100vh]'>
-            <div className='w-[30vw] h-[60vh] bg-slate-800 rounded text-black'>
+            <div className='h-[60vh] aspect-[9/16] bg-slate-800 rounded text-black'>
                 {loading}
             </div>
         </main>
