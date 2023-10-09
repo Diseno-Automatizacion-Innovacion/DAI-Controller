@@ -1,5 +1,5 @@
 
-export default function loading_menu() {
+export default function Loading_Menu() {
 
     return (
         <div className="flex h-full items-center place-content-center">

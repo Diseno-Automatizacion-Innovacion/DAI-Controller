@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import location from '../../../public/Translations/location.json'
 import { text } from "stream/consumers"
 
-export default function loginMenu() {
+export default function Login_Menu() {
 
     const router = useRouter()
 
