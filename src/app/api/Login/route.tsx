@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import * as fs from 'fs'
-import * as child from 'child_process'
+import * as crypto from 'crypto'
 
 
 export async function POST(req: NextRequest) {
@@ -14,20 +14,37 @@ export async function POST(req: NextRequest) {
         console.log(credentials)
 
         var shadowPass = credentials.split(`${data.usr}:`)[1].split(":")[0]
-        var hashPass = child.execSync(`mkpasswd -5 -S pocopene ${data.pass}`).toString().replace(/\n$/, "")
+        // var hashPass = child.execSync(`mkpasswd -5 -S pocopene ${data.pass}`).toString().replace(/\n$/, "")
+        var hashPass = crypto.createHash("md5").update("pocopene" + data.pass).digest("hex")
 
         console.log({
             "shadow": shadowPass,
             "hash": hashPass
         })
     }
-    catch {
+    catch (e) {
+        console.log(e)
         return NextResponse.json({
             "ok": false
         })
     }
 
-    return NextResponse.json({
-        "ok": shadowPass == hashPass
-    })
+    if (shadowPass == hashPass) {
+        let cookie = data.usr + ":" + crypto.randomUUID()
+        try {
+            const cookieFile = fs.readFileSync("/etc/daiCookies").toString()
+            if (cookieFile.includes(data.usr)) {
+                let reg = new RegExp(data.usr + ":.+")
+                fs.writeFileSync("/etc/daiCookies", cookieFile.replace(reg, ""))
+            }
+        }
+        catch { }
+        fs.writeFileSync(`/etc/daiCookies`, `${cookie}\n`, { flag: "a" })
+
+        return NextResponse.json({
+            "ok": true,
+            "cookie": cookie
+        })
+    }
+
 }
