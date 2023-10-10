@@ -6,8 +6,8 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 
 /* ------------------------------- Components ------------------------------- */
-import loading_menu from '@/Components/Dashboard/loading_menu'
-import login_menu from '@/Components/Dashboard/login_menu'
+import LoadingMenu from '@/Components/Dashboard/LoadingMenu'
+import LoginMenu from '@/Components/Dashboard/LoginMenu'
 import { useLanguage } from '@/Components/useLanguage'
 import location from '../../public/Translations/location.json'
 
@@ -18,7 +18,7 @@ export default function Login() {
 
     const router = useRouter()
 
-    const [loading, setLoading] = useState(loading_menu)
+    const [loading, setLoading] = useState(LoadingMenu)
 
     useEffect(() => {
         async function checkCookie() {
@@ -32,9 +32,9 @@ export default function Login() {
                 })).json()
                 console.log(res)
                 if (res.ok) router.push("/Dashboard")
-                else setLoading(login_menu)
+                else setLoading(LoginMenu)
             }
-            else setLoading(login_menu)
+            else setLoading(LoginMenu)
         }
         checkCookie()
     }, [router])
