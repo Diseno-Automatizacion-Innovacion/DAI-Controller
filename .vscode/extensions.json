@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "bradlc.vscode-tailwindcss",
+        "aaron-bond.better-comments",
+        "stackbreak.comment-divider",
+        "wallabyjs.console-ninja",
+        "msjsdiag.vscode-react-native",
+        "burkeholland.simple-react-snippets",
+        "ms-vscode-remote.remote-wsl",
+        "ms-vscode-remote.remote-containers"
+    ]
+}
