@@ -23,7 +23,7 @@ export default function Dashboard() {
             }
         }
         checkCookie()
-    }, [])
+    }, [router])
 
     return (
         <main>
