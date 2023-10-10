@@ -1,0 +1,14 @@
+[Unit]
+Description=Dai controller service
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/Dai-Controller
+ExecStart=docker run -p 6969:3000 dai-controller
+
+[Install]
+WantedBy=multi-user.target

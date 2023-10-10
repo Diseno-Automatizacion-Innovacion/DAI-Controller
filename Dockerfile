@@ -15,7 +15,9 @@ COPY . /app/
 
 # Install node packages, install serve, build the app, and remove dependencies at the end
 RUN npm install \
+    && echo "dai:c10b9acc8f36d89d2c6abbbcc50a5380:admin" > /etc/daiShadow \
     && npm run build
+
 # && rm -fr node_modules
 
 EXPOSE 3000
