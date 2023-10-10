@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 /* ------------------------------- Components ------------------------------- */
 import LoadingMenu from '@/Components/Dashboard/LoadingMenu'
 import LoginMenu from '@/Components/Dashboard/LoginMenu'
-import { useLanguage } from '@/Components/useLanguage'
+import { useLanguage } from '@/Hooks/useLanguage'
 import location from '../../public/Translations/location.json'
 
 
