@@ -27,7 +27,7 @@ export default function Dashboard() {
 
     return (
         <main>
-            <button onClick={() => alert("hola")}>Dashboard</button>
+            <button onClick={() => alert(localStorage.getItem("login")?.split(":")[0])}>Dashboard</button>
         </main>
     )
 }
