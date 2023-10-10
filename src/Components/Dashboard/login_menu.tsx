@@ -1,14 +1,16 @@
 "use client"
 import { useRouter } from "next/navigation"
 import location from '../../../public/Translations/location.json'
-import { text } from "stream/consumers"
+
 
 export default function Login_Menu() {
 
     const router = useRouter()
-    const lang = navigator.language.slice(0, 2) as keyof typeof location.Login
 
-    // console.log(lang)
+    let lang = "en" as keyof typeof location.Login
+    if (Object.keys(location.Login).includes(navigator.language.slice(0, 2)))
+        lang = navigator.language.slice(0, 2) as keyof typeof location.Login
+
 
     async function Auth(usr: string, pass: string) {
         const res = await (await fetch("/api/Login", {
@@ -30,15 +32,15 @@ export default function Login_Menu() {
 
     return (
         <div className="flex flex-col gap-1 h-full place-content-center items-center">
-            <input type="text" className={inputs} placeholder={location.Login[lang || 'en'].user_placeholder} id="user" />
-            <input type="password" className={inputs} name="" placeholder={location.Login[lang || 'en'].password_placeholder} id="pass" />
+            <input type="text" className={inputs} placeholder={location.Login[lang].user_placeholder} id="user" />
+            <input type="password" className={inputs} name="" placeholder={location.Login[lang].password_placeholder} id="pass" />
             <button onClick={() => {
                 // Este tipo de cosas son los puntos negativos de ts
                 const user = (document.querySelector("#user") as HTMLInputElement)?.value
                 const pass = (document.querySelector("#pass") as HTMLInputElement)?.value
                 Auth(user, pass)
             }}>
-                {location.Login[lang || 'en'].login_button}
+                {location.Login[lang].login_button}
             </button>
         </div>
     )
