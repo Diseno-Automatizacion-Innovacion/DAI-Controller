@@ -46,5 +46,10 @@ export async function POST(req: NextRequest) {
             "cookie": cookie
         })
     }
+    else {
+        return NextResponse.json({
+            "ok": false
+        })
+    }
 
 }
