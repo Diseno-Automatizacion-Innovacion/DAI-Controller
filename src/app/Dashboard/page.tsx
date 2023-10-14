@@ -21,6 +21,9 @@ export default function Dashboard() {
                 // console.log(res)
                 if (!res.ok) router.push("/")
             }
+            else {
+                router.push("/")
+            }
         }
         checkCookie()
     }, [router])
