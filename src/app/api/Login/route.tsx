@@ -7,7 +7,7 @@ import * as os from 'os'
 export async function POST(req: NextRequest) {
     const data = await req.json()
 
-    console.log(data)
+    // console.log(data)
 
     if ((process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") && os.platform.name === "win32") {
         return NextResponse.json({
