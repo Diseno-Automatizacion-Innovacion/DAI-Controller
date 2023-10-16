@@ -10,5 +10,4 @@ if [ "$(git pull 2>&1)" != "Already up to date." ];
     npm run build > /dev/null
     echo "[Update]: Done"
   fi
-echo "[Update]: Server up to date"
 npm run start
