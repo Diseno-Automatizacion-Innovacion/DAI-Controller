@@ -1,8 +1,12 @@
 #!/bin/sh
-if [ "$(git pull)" != "Already up to date." ];
+if [ "$(git pull 2>&1)" != "Already up to date." ];
   then
-    git fetch --all
-    git reset --hard origin/main
-    npm run build
+    echo "[Update]: fetching data"
+    git fetch --all > /dev/null
+    echo "[Update]: Writting changes"
+    git reset --hard origin/main > /dev/null
+    echo "[Update]: Building changes"
+    npm run build > /dev/null
+    echo "[Update]: done"
   fi
 npm run start
