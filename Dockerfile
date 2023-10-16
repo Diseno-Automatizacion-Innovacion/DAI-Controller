@@ -10,6 +10,7 @@ COPY . /app/
 
 # Install dependencies, create daiShadow and build nextjs app
 RUN npm install \
+    && apk --no-cache add git \
     && echo "dai:c10b9acc8f36d89d2c6abbbcc50a5380:admin" > /etc/daiShadow \
     && npm run build
 
