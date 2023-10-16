@@ -19,19 +19,19 @@ export async function POST(req: NextRequest) {
     try {
         const credentials = fs.readFileSync("/etc/daiShadow").toString()
 
-        console.log(credentials)
+        // console.log(credentials)
 
         var shadowPass = credentials.split(`${data.usr}:`)[1].split(":")[0]
         // var hashPass = child.execSync(`mkpasswd -5 -S pocopene ${data.pass}`).toString().replace(/\n$/, "")
         var hashPass = crypto.createHash("md5").update("pocopene" + data.pass).digest("hex")
 
-        console.log({
-            "shadow": shadowPass,
-            "hash": hashPass
-        })
+        // console.log({
+        //     "shadow": shadowPass,
+        //     "hash": hashPass
+        // })
     }
     catch (e) {
-        console.log(e)
+        // console.log(e)
         return NextResponse.json({
             "ok": false
         })
