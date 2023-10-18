@@ -28,16 +28,16 @@ export default function Login_Menu() {
         }
     }
 
-    const inputs = "w-[70%] rounded text-center"
+    const inputs = "w-[70%] rounded text-center bg-inherit p-2 focus:outline-none focus:ring decoration-blue-400 duration-500 ease-in-out"
 
     return (
-        <div className="flex flex-col gap-1 h-full place-content-center items-center">
+        <div className="flex flex-col gap-3 h-full place-content-center items-center">
             <input type="text" className={inputs} placeholder={location.Login[lang].user_placeholder} id="user" />
-            <input type="password" className={inputs} name="" placeholder={location.Login[lang].password_placeholder} id="pass" />
-            <button onClick={() => {
+            <input type="password" className={inputs} name="" placeholder={location.Login[lang].password_placeholder} id="password" />
+            <button className="text-slate-900 dark:text-white" onClick={() => {
                 // Este tipo de cosas son los puntos negativos de ts
                 const user = (document.querySelector("#user") as HTMLInputElement)?.value
-                const pass = (document.querySelector("#pass") as HTMLInputElement)?.value
+                const pass = (document.querySelector("#password") as HTMLInputElement)?.value
                 Auth(user, pass)
             }}>
                 {location.Login[lang].login_button}

@@ -8,6 +8,7 @@ import { useEffect } from 'react'
 /* ------------------------------- Components ------------------------------- */
 import LoadingMenu from '@/Components/Dashboard/LoadingMenu'
 import LoginMenu from '@/Components/Dashboard/LoginMenu'
+import login2 from "@/Components/Dashboard/login2"
 import { useLanguage } from '@/Hooks/useLanguage'
 import location from '../../public/Translations/location.json'
 
@@ -22,7 +23,6 @@ export default function Login() {
 
     useEffect(() => {
         async function checkCookie() {
-            // console.log("a")
             if (localStorage.getItem("login")) {
                 const res = await (await fetch("/api/Cookie", {
                     method: "POST",
@@ -41,8 +41,8 @@ export default function Login() {
 
 
     return (
-        <main className='flex items-center place-content-center h-[100vh]'>
-            <div className='h-[60vh] aspect-[9/16] bg-slate-800 rounded text-black'>
+        <main className='flex items-center place-content-center h-[100vh] bg-[url(/background/login.jpg)] bg-cover'>
+            <div className='h-[60vh] aspect-[9/16] bg-white dark:bg-slate-950 rounded text-black shadow'>
                 {loading}
             </div>
         </main>

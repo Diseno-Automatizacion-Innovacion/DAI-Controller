@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     // console.log(data)
 
-    if ((process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") && os.platform.name === "win32") {
+    if ((process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") && os.platform() === "win32") {
         return NextResponse.json({
             "ok": true,
             "cookie": "test"
