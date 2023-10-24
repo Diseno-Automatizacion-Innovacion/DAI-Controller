@@ -1,4 +1,5 @@
 #!/bin/sh
+# comentario random para poder pushear :D
 if [ "$(git pull 2>&1)" != "Already up to date." ];
   then
     echo "[Update]: Updates available"
