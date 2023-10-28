@@ -3,6 +3,8 @@
 import Image from 'next/image'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { Metadata } from 'next'
+import menuIcon from "../../../public/icons/menu.svg"
 
 
 export default function Dashboard() {
@@ -30,7 +32,9 @@ export default function Dashboard() {
 
     return (
         <main>
-            <button onClick={() => alert(localStorage.getItem("login")?.split(":")[0])}>Dashboard</button>
+            <header tabIndex={0} className='fixed flex flex-col justify-center items-center top-0 bg-slate-500 rounded h-full left-0 cursor-pointer focus:hover:w-5/6 hover:w-5/6  duration-200 ease-in-out'>
+                <Image src={menuIcon} alt='Icon' className=''></Image>
+            </header>
         </main>
     )
 }
