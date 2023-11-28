@@ -19,3 +19,15 @@
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+.bg-color-bg {
+  background-color: #1b0d0d;
+}
+
+.bg-menu {
+  background-color: #390000;
+}
+
+#menu {
+  fill: rgb(181, 59, 59);
+}

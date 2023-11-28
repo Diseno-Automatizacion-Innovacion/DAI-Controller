@@ -33,8 +33,8 @@ export default function Dashboard() {
     }, [router])
 
     return (
-        <main className='bg-slate-900 h-screen'>
-            <header tabIndex={0} className='fixed flex flex-col justify-center items-center top-0 bg-slate-500 rounded h-full left-0 cursor-pointer duration-200 ease-in-out  focus:w-5/6  z-30' onFocus={() => {
+        <main className='bg-color-bg h-screen'>
+            <header tabIndex={0} className='fixed flex flex-col justify-center items-center top-0 bg-menu rounded h-full left-0 cursor-pointer duration-200 ease-in-out  focus:w-5/6  z-30' onFocus={() => {
                 setToggle(true)
             }} onBlur={() => {
                 setToggle(false)
