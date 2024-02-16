@@ -34,14 +34,24 @@ export default function Dashboard() {
 
     return (
         <main className='bg-color-bg h-screen'>
-            <header tabIndex={0} className='fixed flex flex-col justify-center items-center top-0 bg-menu rounded h-full left-0 cursor-pointer duration-200 ease-in-out  focus:w-5/6  z-30' onFocus={() => {
+            <header tabIndex={0} className='fixed flex flex-col top-0 bg-menu rounded h-full left-0 cursor-pointer duration-200 ease-in-out  focus:w-5/6  z-30' onFocus={() => {
                 setToggle(true)
             }} onBlur={() => {
                 setToggle(false)
             }}>
                 {
                     toggle ?
-                        <div>abierto</div>
+                        <div className='grid gap-24 grid-cols-3'>
+                            <div className='col-start-1 row-start-1 border border-red-500 rounded-xl p-4 text-center font-bold text-2xl'>
+                                Luces
+                            </div>
+                            <div className='w-[33%] col-start-2 row-start-1 border border-red-500 rounded-xl p-4 text-center font-bold text-2xl'>
+                                puertas
+                            </div>
+                            <div className='w-[60%] col-start-3 row-start-1 border border-red-500 rounded-xl p-4 text-center font-bold text-2xl'>
+                                Configuración
+                            </div>
+                        </div>
                         :
                         <Image src={menuIcon.src} alt="hola" width={30} height={30} />
                 }
