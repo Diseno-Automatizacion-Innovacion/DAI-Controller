@@ -17,34 +17,39 @@ import location from '../../public/Translations/location.json'
 
 export default function Login() {
 
-    const router = useRouter()
+  const router = useRouter()
 
-    const [loading, setLoading] = useState(LoadingMenu)
+  const [loading, setLoading] = useState(LoadingMenu)
+  dispatchEvent
+  useEffect(() => {
+    async function checkCookie() {
 
-    useEffect(() => {
-        async function checkCookie() {
-            if (localStorage.getItem("login")) {
-                const res = await (await fetch("/api/Cookie", {
-                    method: "POST",
-                    body: JSON.stringify({
-                        "cookie": localStorage.getItem("login")
-                    })
-                })).json()
-                console.log(res)
-                if (res.ok) router.push("/Dashboard")
-                else setLoading(LoginMenu)
-            }
-            else setLoading(LoginMenu)
-        }
-        checkCookie()
-    }, [router])
+      if (localStorage.getItem("login")) {
+        
+        const res = await (await fetch("/api/Cookie", {
+          method: "POST",
+          body: JSON.stringify({
+            "cookie": localStorage.getItem("login")
+          })
+        })).json()
+
+        console.log(res)
+
+        if (res.ok) router.push("/Dashboard")
+        else setLoading(LoginMenu)
+      }
+
+      else setLoading(LoginMenu)
+    }
+    checkCookie()
+  }, [router])
 
 
-    return (
-        <main className='flex items-center place-content-center h-[100vh] bg-[url(/background/login.jpg)] bg-cover'>
-            <div className='h-[60vh] aspect-[9/16] bg-white dark:bg-slate-950 rounded text-black shadow'>
-                {loading}
-            </div>
-        </main>
-    )
+  return (
+    <main className='flex items-center place-content-center h-[100vh] bg-[url(/background/login.jpg)] bg-cover'>
+      <div className='h-[60vh] aspect-[9/16] bg-white dark:bg-slate-950 rounded text-black shadow'>
+        {loading}
+      </div>
+    </main>
+  )
 }
