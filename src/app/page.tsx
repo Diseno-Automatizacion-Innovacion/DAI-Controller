@@ -25,7 +25,7 @@ export default function Login() {
     async function checkCookie() {
 
       if (localStorage.getItem("login")) {
-        
+
         const res = await (await fetch("/api/Cookie", {
           method: "POST",
           body: JSON.stringify({
